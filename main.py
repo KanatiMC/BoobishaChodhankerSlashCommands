@@ -26,6 +26,7 @@ Hex = [
 ]
 
 @bot.command()
+@lightbulb.add_checks(lightbulb.checks.has_roles(935264554466811914))
 @lightbulb.option("suggestion", "What You'd Like To Suggest")
 @lightbulb.command("suggest", "Give A Suggestion To The Server")
 @lightbulb.implements(lightbulb.SlashCommand)
