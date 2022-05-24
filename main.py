@@ -26,7 +26,6 @@ Hex = [
 ]
 
 @bot.command()
-@lightbulb.add_checks(lightbulb.checks.has_roles(935264554466811914))
 @lightbulb.option("suggestion", "What You'd Like To Suggest")
 @lightbulb.command("suggest", "Give A Suggestion To The Server")
 @lightbulb.implements(lightbulb.SlashCommand)
@@ -69,6 +68,7 @@ async def cmd_google(ctx: lightbulb.SlashContext) -> None:
     await ctx.respond(f"<https://google.gprivate.com/search.php?search?q={q.replace(' ', '+')}>")
 
 @bot.command()
+@lightbulb.add_checks(lightbulb.checks.has_roles(935264554466811914))
 @lightbulb.option("question", "What Question You'd Like To Poll")
 @lightbulb.command("poll", "Creates A Poll")
 @lightbulb.implements(lightbulb.SlashCommand)
