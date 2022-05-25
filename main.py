@@ -55,6 +55,29 @@ async def cmd_ping(ctx: lightbulb.SlashContext) -> None:
 	await ctx.respond(f"My Ping Is Approximately {round(ctx.bot.heartbeat_latency * 1000)} ms.")
 
 @bot.command()
+@lightbulb.option("suggestion", "What To Suggest")
+@lightbulb.command("bot", "Suggest Something to Add To The Bot")
+@lightbulb.implements(lightbulb.SlashCommand)
+async def cmd_bot(ctx: lightbulb.SlashContext) -> None:
+	await ctx.respond("Suggestion Added")
+	embed = (
+			hikari.Embed(
+			description=ctx.options.suggestion,
+			colour=random.choice(Hex),
+		)
+		.set_footer(
+			text="Boobisha Chodhanker By Kanati"
+		)
+		.set_author(
+			name=f"{ctx.member.username}#{ctx.member.discriminator} | {ctx.member.id}",
+			icon=ctx.author.avatar_url
+		)
+	)
+	await bot.rest.create_message(os.environ["BotSuggest"], embed)
+
+
+
+@bot.command()
 @lightbulb.option("query", "What You Want To Google")
 @lightbulb.command("google", "Let Me Googe That For You")
 @lightbulb.implements(lightbulb.SlashCommand)
